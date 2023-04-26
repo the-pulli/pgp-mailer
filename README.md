@@ -27,7 +27,7 @@ Can be found [here](https://github.com/the-pulli/pgp-mailer/blob/main/example.ph
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/the-pulli/pay-day.
+Bug reports and pull requests are welcome on GitHub at https://github.com/the-pulli/pgp-mailer.
 
 ## License
 
