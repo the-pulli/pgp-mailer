@@ -2,7 +2,7 @@
 
 namespace Pulli\Mime\Part;
 
-use Pulli\Mime\Helper\LineEnding;
+use Pulli\Mime\Helper\PGPSigningPreparer;
 use Symfony\Component\Mime\Part\AbstractPart;
 
 /*
@@ -10,7 +10,7 @@ use Symfony\Component\Mime\Part\AbstractPart;
  */
 class PGPEncryptedMessagePart extends AbstractPart
 {
-    use LineEnding;
+    use PGPSigningPreparer;
 
     private string $body;
 

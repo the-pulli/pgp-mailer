@@ -19,11 +19,21 @@ Supports:
 ## Caveats
 
 The only signing part isn't working on all of my test clients (probably due to some formatting of the line endings).
-It's working with my test clients MailMate and ProtonMail but not in Canary Mail.
+
+Working clients so far: 
+
+- [MailMate](https://freron.com)
+- [ProtonMail](https://proton.me/mail)
+- [mailbox.org](https://mailbox.org/en/)
+- [GPG Mail (Apple Mail Plugin)](https://gpgtools.org)
+
+Not working:
+
+- [Canary Mail](https://canarymail.io) (contacted their support to see what the issue is)
 
 ## Example file
 
-Can be found [here](https://github.com/the-pulli/pgp-mailer/blob/main/example.php)
+Can be found [here](https://github.com/the-pulli/pgp-mailer/blob/main/example.php).
 
 ## Contributing
 

@@ -2,7 +2,7 @@
     "name": "pulli/pgp-mailer",
     "type": "library",
     "description": "PGP Support for Symfony Mailer",
-    "keywords": ["framework", "symfony", "pgp"],
+    "keywords": ["framework", "symfony", "pgp", "mailer"],
     "license": "MIT",
     "authors": [
         {

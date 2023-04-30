@@ -8,7 +8,7 @@ use Crypt_GPG_Exception;
 use Crypt_GPG_FileException;
 use Crypt_GPG_KeyNotFoundException;
 use PEAR_Exception;
-use Pulli\Mime\Helper\LineEnding;
+use Pulli\Mime\Helper\PGPSigningPreparer;
 use Pulli\Mime\Part\Multipart\PGPEncryptedPart;
 use Pulli\Mime\Part\Multipart\PGPSignedPart;
 use Pulli\Mime\Part\PGPEncryptedInitializationPart;
@@ -24,7 +24,7 @@ use Symfony\Component\Mime\Part\Multipart\MixedPart;
  */
 class PGPEncrypter
 {
-    use LineEnding;
+    use PGPSigningPreparer;
 
     private Crypt_GPG $gpg;
 
@@ -46,8 +46,8 @@ class PGPEncrypter
             array_merge(
                 $options,
                 [
-                    'digest-algo' => 'SHA512',
                     'cipher-algo' => 'AES256',
+                    'digest-algo' => 'SHA512',
                 ]
             )
         );
@@ -127,7 +127,7 @@ class PGPEncrypter
             $messagePart = $mixed;
         }
         // TODO: find a way to normalize Message body and pass it along to PGPSignedPart
-        $body = $this->normalize($body);
+        $body = $this->prepareMessageForSigning($messagePart, $body);
         $this->signed = $body;
 
         $this->gpg->addSignKey($this->determineSigningKey(), $passphrase);
@@ -185,6 +185,6 @@ class PGPEncrypter
 
     private function determineSigningKey(): string
     {
-        return $this->signingKey ?: $this->getFrom();
+        return $this->signingKey ?? $this->getFrom();
     }
 }
